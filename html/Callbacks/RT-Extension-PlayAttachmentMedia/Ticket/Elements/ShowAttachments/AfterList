@@ -1,0 +1,11 @@
+<script type="text/javascript">
+    jQuery( "div.attachment-list" ).find( "div.custom-control" ).each(
+        function(index) {
+            var href   = jQuery( this ).find( "a" ).attr("href");
+            var element = makePlayAttachmentMediaElement(href);
+            if ( element.length > 0 ) {
+                jQuery(this).append(element);
+            }
+        }
+    );
+</script>

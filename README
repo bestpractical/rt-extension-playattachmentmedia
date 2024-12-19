@@ -1,0 +1,63 @@
+NAME
+    RT-Extension-PlayAttachmentMedia - Allow playback of audio/video ticket
+    attachments
+
+DESCRIPTION
+    This extension allows RT to play audio or video ticket attachments
+    directly in the browser without having to download them.
+
+    The following media format file extensions are allowed by default:
+
+    flac: 'audio/flac'
+    mp3 : 'audio/mp3'
+    mp4 : 'video/mp4'
+    ogg : 'video/ogg'
+    oga : 'video/ogg'
+    ogv : 'video/ogg'
+    ogx : 'video/ogg'
+    spx : 'video/ogg'
+    opus: 'video/ogg'
+    wav : 'audio/wav'
+    wave: 'audio/wav'
+    webm: 'video/webm'
+
+    If you want to allow only some of these formats see the
+    $PlayAttachmentMediaAllowed config option below.
+
+RT VERSION
+    Works with RT 5
+
+INSTALLATION
+    perl Makefile.PL
+    make
+    make install
+        May need root permissions
+
+    Edit your /opt/rt5/etc/RT_SiteConfig.pm
+        Add this line:
+
+            Plugin('RT::Extension::PlayAttachmentMedia');
+
+    Clear your mason cache
+            rm -rf /opt/rt5/var/mason_data/obj
+
+    Restart your webserver
+
+CONFIGURATION
+  @PlayAttachmentMediaAllowed
+    Control what media formats are allowed:
+
+        Set( @PlayAttachmentMediaAllowed, ( qw( mp3 mp4 ) ) );
+
+    include only the file extensions for formats you want to allow.
+
+AUTHOR
+    Best Practical Solutions, LLC <modules@bestpractical.com>
+
+LICENSE AND COPYRIGHT
+    This software is Copyright (c) 2024 by BPS
+
+    This is free software, licensed under:
+
+      The GNU General Public License, Version 2, June 1991
+

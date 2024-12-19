@@ -1,0 +1,22 @@
+% if ( $Name ) {
+<script type="text/javascript">
+    jQuery( "div.downloadattachment" ).find("a[href*='" + "<% $Href %>" + "']").each(
+        function() {
+            var element = makePlayAttachmentMediaElement( "<% $Href . $Name %>" );
+            if ( element.length > 0 ) {
+                jQuery(this).after(element);
+            }
+        }
+    );
+</script>
+% }
+<%ARGS>
+$Transaction
+$Attachment
+$Name => ''
+$Href => ''
+</%ARGS>
+<%INIT>
+$Name = $Attachment->Filename // '';
+$Href = 'Attachment/' . $Transaction->Id . '/' . $Attachment->Id . '/';
+</%INIT>

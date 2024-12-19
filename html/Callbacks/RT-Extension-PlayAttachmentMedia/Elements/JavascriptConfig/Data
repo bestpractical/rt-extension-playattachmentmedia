@@ -1,0 +1,15 @@
+<%ARGS>
+$Catalog
+$Config
+</%ARGS>
+<%INIT>
+$Catalog->{close} = loc('Close');
+$Catalog->{play_attachment} = loc('Play Attachment');
+
+# turn AttachmentMediaAllowed config into JS array for _getMediaTypeForExtension
+my @default = ( '*' );
+my @allowed = RT->Config->Get('PlayAttachmentMediaAllowed');
+@allowed = @default
+    unless defined $allowed[0];
+$Config->{PlayAttachmentMediaAllowed} = [ @allowed ];
+</%INIT>

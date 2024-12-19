@@ -1,0 +1,21 @@
+button.play-attachment {
+    background-color: white;
+}
+
+/* Align with attachment text */
+.history button.play-attachment {
+    margin-top: -5px;
+}
+
+audio::-webkit-media-controls-enclosure {
+    border-radius: 3px;
+    background-color: white;
+    margin-bottom: 3px;
+    margin-top: 3px;
+}
+
+video::-webkit-media-controls-enclosure {
+    border-radius: 3px;
+    margin-bottom: 3px;
+    margin-top: 3px;
+}
